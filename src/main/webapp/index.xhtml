@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:util="http://xmlns.jcp.org/jsf/composite/util">
+<h:head>
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	<h:outputStylesheet library="css" name="styles.css" />
+</h:head>
+<h:body>
+	<div class="container containpadding">
+		<util:icon nameLabel="User Name:" passwordLabel="Password:"
+			name="#{image.username}" password="#{image.password}"
+			loginButtonText="Login" actionMethod="#{image.registerAction}"
+			immidiate="true" image="resources/images/back.png"
+			styleClass="clickme">
+			<f:validateLength minimum="5" for="nameInput" />
+		</util:icon>
+	</div>
+</h:body>
+</html>

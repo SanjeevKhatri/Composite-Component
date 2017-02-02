@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+<composite:interface>
+	<composite:editableValueHolder name="nameInput" targets="form:name" />
+	<composite:editableValueHolder name="passwordInput"
+		targets="form:password" />
+	<composite:editableValueHolder name="inputs"
+		targets="form:name form:password" />
+
+	<composite:attribute name="nameLabel" />
+	<composite:attribute name="name" />
+	<composite:attribute name="passwordLabel" />
+	<composite:attribute name="password" />
+	<composite:attribute name="loginButtonText" />
+
+	<composite:attribute name="image" required="true" />
+	<composite:attribute name="doValidation" default="true" />
+	<composite:attribute name="styleClass" default="clickme" />
+	<composite:attribute name="formClass" default="form-control" />
+	<composite:attribute name="actionMethod"
+		method-signature="java.lang.String action()" />
+</composite:interface>
+<composite:implementation>
+	<h:form id="form">
+		<div class="form-group">
+			<label>#{cc.attrs.nameLabel}</label>
+			<h:inputText styleClass="#{cc.attrs.formClass}" label="name"
+				id="name" required="true" value="#{cc.attrs.name}" />
+		</div>
+		<div class="form-group">
+			<label>#{cc.attrs.passwordLabel}</label>
+			<h:inputSecret styleClass="#{cc.attrs.formClass}" label="password"
+				id="password" required="true" value="#{cc.attrs.password}" />
+		</div>
+		<label>#{cc.attrs.loginButtonText}</label>
+		<br />
+		<h:commandLink action="#{cc.attrs.actionMethod}"
+			immediate="#{not cc.attrs.doValidation}">
+			<h:graphicImage url="#{cc.attrs.image}"
+				styleClass="#{cc.attrs.styleClass}" />
+		</h:commandLink>
+	</h:form>
+</composite:implementation>
+</html>

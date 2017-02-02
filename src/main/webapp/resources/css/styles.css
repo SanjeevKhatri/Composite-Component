@@ -1,0 +1,25 @@
+body {
+	background: #fefeef;
+}
+
+.clickme {
+	border: 4px solid darkblue;
+	/* 	display: block; */
+	/* 	margin: auto; */
+	width: 5%;
+}
+
+.chekitout {
+	padding: 200px;
+	text-decoration: overline;
+	text-align: center;
+	font-size: 30px;
+}
+
+.errormsg {
+	color: red;
+}
+
+.containpadding{
+	padding: 100px;
+}
